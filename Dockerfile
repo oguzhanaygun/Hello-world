@@ -13,5 +13,6 @@ FROM openjdk:8-jre-alpine3.9
  
 # copy only the artifacts we need from the first stage and discard the rest
 COPY --from=MAVEN_BUILD /build/target/*.jar /app.jar
+EXPOSE 11130
 
 ENTRYPOINT ["java","-jar","/app.jar"]
