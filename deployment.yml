@@ -1,0 +1,26 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: hb-task
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5
+  template:
+    metadata:
+      labels:
+        app: hb-hello-world
+    spec:
+      containers:
+      - name: hb-hello-world
+        image: gcr.io/hb-task-291413/hb-hello-world
+        ports:
+        - containerPort: 11130
+        resources:
+          requests:
+            cpu: 100m
+          limits:
+            cpu: 100m

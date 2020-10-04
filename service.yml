@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hb-hello-wrold-service
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 11130
+  selector:
+    app: hb-hello-world
