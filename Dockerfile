@@ -6,7 +6,7 @@ COPY src /build/
 
 # package our application code
 WORKDIR /build/
-RUN mvn clean package
+RUN mvn clean package -q
  
 # the second stage of our build will use open jdk 8 on alpine 3.9
 FROM openjdk:8-jre-alpine3.9
